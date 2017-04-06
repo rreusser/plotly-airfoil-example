@@ -1,5 +1,5 @@
 {
-  "name": "plotly-airfoil",
+  "name": "plotly-airfoil-example",
   "version": "1.0.0",
   "description": "A Karman-Trefftz airfoil using forthcoming plotly.js features",
   "main": "index.js",
