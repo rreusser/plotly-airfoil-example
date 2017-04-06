@@ -215,6 +215,7 @@ json.dump(dict(
       xanchor='left',
       yanchor='top',
       pad=dict(t=50),
+      showactive=False,
       y=0,
       x=0,
       buttons=[dict(
