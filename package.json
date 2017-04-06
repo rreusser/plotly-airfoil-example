@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "watch": "nodemon -w airfoil.py --exec \"python airfoil.py\"",
-    "start": "plotly-mock-viewer --mock-dir=./ --plotly-dir=../plotly.js",
-    "build:html": "echo '' | indexhtmlify | htmlinjectscript -a -b bundle.js | metadataify | github-cornerify > index.html",
-    "build:js": "browserify index.js | uglifyjs -c -m > bundle.js",
+    "start": "plotly-mock-viewer --mock-dir=./assets --plotly-dir=../plotly.js",
+    "build:html": "echo '' | indexhtmlify | htmlinjectscript -a -b \"https://rawgit.com/rreusser/plotly-airfoil-example/master/bundle.js\" | metadataify | github-cornerify > index.html",
+    "build:js": "browserify index.js | uglifyjs -c -m > assets/bundle.js",
     "build:data": "python airfoil.py",
     "build": "npm run build:data && npm run build:js && npm run build:html"
   },

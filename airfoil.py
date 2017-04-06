@@ -187,7 +187,7 @@ def makedata (alphadeg):
     ),
   ]
 
-f = open('airfoil.json', 'w')
+f = open('assets/airfoil.json', 'w')
 json.dump(dict(
   data=makedata(alpha0),
   layout=dict(
