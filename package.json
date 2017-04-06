@@ -2,13 +2,13 @@
   "name": "plotly-airfoil-example",
   "version": "1.0.0",
   "description": "A Karman-Trefftz airfoil using forthcoming plotly.js features",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "watch": "nodemon -w airfoil.py --exec \"python airfoil.py\"",
+    "watch": "nodemon -w src/airfoil.py --exec \"python src/airfoil.py\"",
     "start": "plotly-mock-viewer --mock-dir=./assets --plotly-dir=../plotly.js",
     "build:html": "echo '' | indexhtmlify | htmlinjectscript -a -b \"https://rawgit.com/rreusser/plotly-airfoil-example/master/assets/bundle.js\" | metadataify | github-cornerify > index.html",
-    "build:js": "browserify index.js | uglifyjs -c -m > assets/bundle.js",
-    "build:data": "python airfoil.py",
+    "build:js": "browserify src/index.js -t brfs | uglifyjs -c -m > assets/bundle.js",
+    "build:data": "python src/airfoil.py",
     "build": "npm run build:data && npm run build:js && npm run build:html"
   },
   "keywords": [],
@@ -27,5 +27,9 @@
   },
   "github-corner": {
     "url": "https://github.com/rreusser/plotly-airfoil-example"
+  },
+  "metadataify": {
+    "url": "http://rickyreusser.com/plotly-airfoil-example/",
+    "image": "https://rawgit.com/rreusser/plotly-airfoil-example/master/bundle.js"
   }
 }
