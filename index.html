@@ -32,8 +32,27 @@
 </svg>
 </a><script src="https://rawgit.com/rreusser/plotly-airfoil-example/master/assets/bundle.js"></script></body>
 
+<style>
+body {
+  text-align: center
+}
+.js-plotly-plot {
+  display: inline-block;
+}
+.explanation {
+  text-align: left;
+  max-width: 800px;
+  padding: 15px;
+  display:inline-block;
+}
+</style>
 <br>
-<em>Note: This uses carpet plots and axis constraints, both of which are forthcoming but currently-unreleased plotly.js features</em>
+<div class="explanation">
+<p><em>Note: This uses carpet plots and axis constraints, both of which are forthcoming but currently-unreleased plotly.js features</em></p>
+
+<p>In particular, it uses the analytical solution for incompressible potential flow over a cylinder. Then, since the flow obeys the Cauchy-Riemann equations (i.e. can be stated as a complex analytic function), then it can be transformed with a <a href="https://en.wikipedia.org/wiki/Conformal_map">conformal map</a> since conformal maps preserve angles. In partiular, the Kármán-Trefftz transform pulls of the remarkable feat of transforming a cylinder into an airfoil. The rest is just details.<br>✈️ </p>
+</div>
+
 <script>
 
 </script>
