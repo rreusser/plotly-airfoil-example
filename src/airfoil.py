@@ -209,30 +209,30 @@ json.dump(dict(
       range=[-1.8, 1.8]
     ),
     dragmode='pan',
-    #updatemenus=[dict(
-      #type='buttons',
-      #direction='right',
-      #xanchor='left',
-      #yanchor='top',
-      #pad=dict(t=50),
-      #y=0,
-      #x=0,
-      #buttons=[dict(
-        #label='Play',
-        #method='animate',
-        #args=[None, dict(
-          #transition=dict(duration=0),
-          #frame=dict(duration=800),
-          #mode='immediate',
-        #)]
-      #), dict(
-        #label='Pause',
-        #method='animate',
-        #args=[[None], dict(
-          #mode='immediate',
-        #)]
-      #)]
-    #)],
+    updatemenus=[dict(
+      type='buttons',
+      direction='right',
+      xanchor='left',
+      yanchor='top',
+      pad=dict(t=50),
+      y=0,
+      x=0,
+      buttons=[dict(
+        label='Play',
+        method='animate',
+        args=[None, dict(
+          transition=dict(duration=0),
+          frame=dict(duration=800),
+          mode='immediate',
+        )]
+      ), dict(
+        label='Pause',
+        method='animate',
+        args=[[None], dict(
+          mode='immediate',
+        )]
+      )]
+    )],
     sliders=[dict(
       transition=dict(
         duration=0
@@ -242,7 +242,7 @@ json.dump(dict(
         prefix=u'Angle of attack, α = ',
         xanchor='right',
       ),
-      #pad=dict(l=130),
+      pad=dict(l=130),
       steps=map(lambda alpha: dict(
         label='%i°' % alpha,
         method='animate',
