@@ -21,7 +21,7 @@
     "html-inject-script": "git@github.com:rreusser/html-inject-script.git",
     "indexhtmlify": "^1.3.1",
     "metadataify": "^1.0.3",
-    "plotly-mock-viewer": "^1.0.11",
+    "plotly-mock-viewer": "^1.0.12",
     "plotly.js": "../plotly.js",
     "uglify-js": "^2.8.21"
   },
