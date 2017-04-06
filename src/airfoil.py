@@ -9,7 +9,8 @@ import numpy as np
 def sanitize1d(data):
   return map(lambda x: 'null' if np.isnan(x) else x, data.tolist())
 
-alpharange = range(-10, 11, 1)
+alpharange = (10.0 * np.sin(np.pi * 0.5 * np.linspace(-1, 1, 41))).tolist()
+#alpharange = range(-10, 11, 1)
 alpha0 = 10
 
 def makedata (alphadeg):
@@ -18,7 +19,6 @@ def makedata (alphadeg):
   n = 1.94
   vinf = 1.0
   alpha = alphadeg * np.pi / 180.0
-  visrot = np.exp(1.0j * alpha)
   rot = np.exp(-1.0j * alpha)
 
   # Grid layout:
@@ -36,7 +36,7 @@ def makedata (alphadeg):
   # Karman-Trefftz transformation:
   k1 = (1.0 + 1.0 / (mu + zeta))**n
   k2 = (1.0 - 1.0 / (mu + zeta))**n
-  z = n * (k1 + k2) / (k1 - k2)
+  z = n * (k1 + k2) / (k1 - k2) * rot
   dzdzeta = 4.0 * n * n / ((mu + zeta)**2.0 - 1.0) * k1 * k2 / (k1 - k2)**2.0
 
   # Pressure coefficient:
@@ -245,10 +245,10 @@ json.dump(dict(
       ),
       pad=dict(l=130),
       steps=map(lambda alpha: dict(
-        label='%i°' % alpha,
+        label='%g°' % alpha,
         method='animate',
         args=[
-          ['alpha%i' % alpha],
+          ['alpha%g' % alpha],
           dict(
             frame=dict(duration=1000),
             transition=dict(duration=0),
@@ -260,7 +260,7 @@ json.dump(dict(
     )]
   ),
   frames=map(lambda alpha: dict(
-    name='alpha%i' % alpha,
+    name='alpha%g' % alpha,
     data=makedata(alpha),
   ), alpharange),
   config=dict(
